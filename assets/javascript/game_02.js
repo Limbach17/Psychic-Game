@@ -10,7 +10,8 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
 
-var winsText = document.getElementById("win-coloumn");
+var winsText = document.getElementById("win-column");
+console.log(winsText);
 var lossesText = document.getElementById("loss-column");
 var guessesLeftText = document.getElementById("guesses-left");
 var guessesText = document.getElementById("guesses");
@@ -19,35 +20,35 @@ document.getElementById("gogamego").onclick = function () {
     document.getElementById("gameboard").style.display = "block";
 }
 
-document.onkeyup = function (event) {
+document.onkeyup = function(event) {
 
         var userInput = event.key;
-        var userGuess = event.key.toLowerCase();
+        var userGuess = userInput.toLowerCase();
         console.log(userGuess);
 
-    function guessRight(userGuess) {
+    function guessRight() {
         alert("You sly dog! At this rate, I'll have to order a Fatwa against you.");
         wins++;
+        console.log("winner");
         guessesLeft = 9;
-        guessesText.textContent = "";
+        guessesText.innerHTML = "Your guesses so far: ";
     }
 
-    function guessWrong(userGuess) {
+    function guessWrong() {
         alert("Hah! Guess again, infidel.");
         guessesLeft--;
-        guessesText = " " + userGuess.toUpperCase() + ",";
+        console.log("Guesses left " + guessesLeft);
+        guessesText.append(" " + userGuess + ",");
+
     }
 
-    function gameOver(userGuess) {
+    function gameOver() {
         alert("Your crusading fervor will only take you so far!");
         losses++;
+        console.log("loser");
         guessesLeft = 9;
-        guessesText.textContent = "";
+        guessesText.innerHTML = "Your guesses so far: ";
     }
-
-
-
-    
 
     if (userGuess === saladinChoice) {
         guessRight(userGuess);
@@ -60,4 +61,10 @@ document.onkeyup = function (event) {
     else {
         gameOver(userGuess);
     }
+
+    
+    winsText.innerHTML = "Wins: " + wins;
+    lossesText.innerHTML = "Losses: " + losses;
+    guessesLeftText.innerHTML = "Guesses left: " + guessesLeft;
+    
 };

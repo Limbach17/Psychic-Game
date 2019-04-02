@@ -1,14 +1,8 @@
 @charset "UTF-8";
 
-/*  #gameboard {
+  #gameboard {
     display: none;
 } 
-
-#gameboard:visited {
-    display: block;
-}
-
-*/
 
 .speech-bubble {
     z-index: 1;
