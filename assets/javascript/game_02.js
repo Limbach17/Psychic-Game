@@ -54,7 +54,7 @@ document.onkeyup = function(event) {
         guessRight(userGuess);
     }
 
-    else if ((userGuess !== saladinChoice) && (guessesLeft > 0)) {
+    else if ((userGuess !== saladinChoice) && (guessesLeft > 1)) {
         guessWrong(userGuess);
     }
 
